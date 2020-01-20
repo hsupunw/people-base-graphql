@@ -40,7 +40,7 @@ command.
     - password:
     
 ## Using GraphiQL
-- Navigate to http://localhost:8080/graphiql and go to graphiQL web based ui.
+- Navigate to http://localhost:8080/graphiql and go to graphiQL web based ui
 - Now you can insert the query, run the query and see results. Example queries can be found below
 - Get All
 ```shell
@@ -58,6 +58,17 @@ command.
 ```shell
 {
   person(id: "123") {
+    firstName
+    lastName
+    age
+    favouriteColour
+    hobby
+  }
+}
+- Create person
+```shell
+mutation {
+  createPerson(firstName: "Sarah", lastName: "Robinson", age: 54, favouriteColour: "blue", hobby: ["chess"]) {
     firstName
     lastName
     age
