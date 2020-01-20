@@ -65,6 +65,7 @@ command.
     hobby
   }
 }
+```
 - Create person
 ```shell
 mutation {
