@@ -41,7 +41,7 @@ command.
     
 ## Using GraphiQL
 - Navigate to http://localhost:8080/graphiql and go to graphiQL web based ui
-- Now you can insert the query, run the query and see results. Example queries can be found below
+- Now you can insert the query, run the query and see results. Example queries can be found below. Please note that in GraphQL you can explicitly specify what attributes are specifically needed for you in the response. Refer below samples.
 - Get All
 ```shell
 {
