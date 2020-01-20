@@ -78,3 +78,22 @@ mutation {
   }
 }
 ```
+- Update person
+```shell
+mutation {
+  updatePerson(id: "123", firstName: "John", lastName: "Keynes", age: 29, favouriteColour: "black", hobby: ["cricket"]) {
+    firstName
+    lastName
+    age
+    favouriteColour
+    hobby
+  }
+}
+```
+- Delete person
+```shell
+mutation {
+  deletePerson(id: "123")
+}
+```
+
