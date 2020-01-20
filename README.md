@@ -31,9 +31,6 @@ java -jar people-base-graphql-0.0.1-SNAPSHOT.jar
 command.
 - By Default it uses port 8080.
 
-## Api Documentation
-- This api is documented with swagger 2 documentation. You can navigate to the swagger-ui with http://localhost:8080/swagger-ui.html
-
 ## H2 Console
 - This application uses an in memory h2 db. To navigate to h2 console, go http://localhost:8080/h2-console
     - user name: sa
