@@ -1,0 +1,24 @@
+type PeopleModulePerson {
+    id: ID!
+    firstName: String
+    lastName: String
+	age: Int
+    favouriteColour: String
+    hobby: [String]
+}
+
+type Query {
+    allPersons: [PeopleModulePerson]
+    person(id: String!): PeopleModulePerson
+}
+
+type Mutation {
+    createPerson(firstName: String, lastName: String, age: Int, favouriteColour: String, hobby: [String]): PeopleModulePerson
+    updatePerson(id: String!,firstName: String, lastName: String, age: Int, favouriteColour: String, hobby: [String]): PeopleModulePerson
+    deletePerson(id: String!): Boolean!
+}
+
+schema {
+ query: Query
+ mutation: Mutation
+}
