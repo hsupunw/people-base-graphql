@@ -22,7 +22,7 @@ mvn clean install
 - Find the executable .jar at */people-base-graphql/target/
 
 ## Test without installing
-- Alternately you can download the executable .jar file directly from https://drive.google.com/open?id=1ZlIE4ivtmLaeM5RZ-D8YHjyVQwMFp0og
+- Alternately you can download the executable .jar file directly from https://drive.google.com/open?id=1B4OaFXnTbCVZr-ZbHDstxIg82f5c631f
 
 ## Run
 - With the executable .jar made with the previous step, you can run the application by 
