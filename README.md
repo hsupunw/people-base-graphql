@@ -31,10 +31,73 @@ java -jar people-base-graphql-0.0.1-SNAPSHOT.jar
 command.
 - By Default it uses port 8080.
 
+## Authentication 
+- This application is secured by basic authentication. So whenever asked please submit following credentials
+    - user name: admin
+    - password: admin
+
 ## H2 Console
 - This application uses an in memory h2 db. To navigate to h2 console, go http://localhost:8080/h2-console
     - user name: sa
     - password:
+
+## Command line client (curl)
+- Below, you can can find sample basic curl command collection to test this application. 
+- Get all
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  allPersons {
+    firstName
+    lastName
+    age
+    favouriteColour
+    hobby
+  }
+}'
+```
+- Get one
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  person(id: "123") {
+    firstName
+    lastName
+    age
+    favouriteColour
+    hobby
+  }
+}}'
+```
+- Create
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d 'mutation {
+  createPerson(firstName: "Sarah", lastName: "Robinson", age: 54, favouriteColour: "blue", hobby: ["chess"]) {
+    firstName
+    lastName
+    age
+    favouriteColour
+    hobby
+  }
+}'
+```
+- Update
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d 'mutation {
+  updatePerson(id: "123", firstName: "John", lastName: "Keynes", age: 29, favouriteColour: "black", hobby: ["cricket"]) {
+    firstName
+    lastName
+    age
+    favouriteColour
+    hobby
+  }
+}'
+```
+- Delete
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d 'mutation {
+  deletePerson(id: "123")
+}'
+```
+
     
 ## Using GraphiQL
 - Navigate to http://localhost:8080/graphiql and go to graphiQL web based ui
