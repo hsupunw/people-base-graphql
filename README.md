@@ -61,7 +61,7 @@ command.
 ```
 - Create
 ```shell
- curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d 'mutation {
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
   "query": "mutation {\n  createPerson(firstName: \"Sarah\", lastName: \"Robinson\", age: 54, favouriteColour: \"blue\", hobby: [\"chess\"]) {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
   "variables": null
 }'
