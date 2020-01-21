@@ -1,7 +1,8 @@
-# Project people-base
+# Project people-base-graphql
 - This is a sample sapring-boot based REST application which shows main crud operations in person entities. 
 - It uses spring-graphql for web layer.
 - Also spring-data-jpa for persistence layer with h2 in memory database.
+- More over it is protected by basic authentication supported by spring-security.
 - This is powered by GraphiQl as a query processor graphical UI.
 
 ## Prerequisite
@@ -31,10 +32,56 @@ java -jar people-base-graphql-0.0.1-SNAPSHOT.jar
 command.
 - By Default it uses port 8080.
 
+## Authentication 
+- This application is secured by basic authentication. So whenever asked please submit following credentials
+    - user name: admin
+    - password: admin
+
 ## H2 Console
 - This application uses an in memory h2 db. To navigate to h2 console, go http://localhost:8080/h2-console
     - user name: sa
     - password:
+
+## Command line client (curl)
+- Below, you can can find sample basic curl command collection to test this application. 
+- Get all
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  "query": "{\n  allPersons {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null,
+  "operationName": null
+}'
+```
+- Get one
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  "query": "{\n  person(id: \"123\") {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null,
+  "operationName": null
+}'
+```
+- Create
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  "query": "mutation {\n  createPerson(firstName: \"Sarah\", lastName: \"Robinson\", age: 54, favouriteColour: \"blue\", hobby: [\"chess\"]) {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null
+}'
+```
+- Update
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  "query": "mutation {\n  updatePerson(id: \"123\", firstName: \"John\", lastName: \"Keynes\", age: 29, favouriteColour: \"black\", hobby: [\"cricket\"]) {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null
+}'
+```
+- Delete
+```shell
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  "query": "mutation {\n  deletePerson(id: \"123\")\n}",
+  "variables": null
+}'
+```
+
     
 ## Using GraphiQL
 - Navigate to http://localhost:8080/graphiql and go to graphiQL web based ui
