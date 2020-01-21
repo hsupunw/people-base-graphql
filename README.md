@@ -46,55 +46,38 @@ command.
 - Get all
 ```shell
  curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
-  allPersons {
-    firstName
-    lastName
-    age
-    favouriteColour
-    hobby
-  }
+  "query": "{\n  allPersons {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null,
+  "operationName": null
 }'
 ```
 - Get one
 ```shell
  curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
-  person(id: "123") {
-    firstName
-    lastName
-    age
-    favouriteColour
-    hobby
-  }
-}}'
+  "query": "{\n  person(id: \"123\") {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null,
+  "operationName": null
+}'
 ```
 - Create
 ```shell
  curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d 'mutation {
-  createPerson(firstName: "Sarah", lastName: "Robinson", age: 54, favouriteColour: "blue", hobby: ["chess"]) {
-    firstName
-    lastName
-    age
-    favouriteColour
-    hobby
-  }
+  "query": "mutation {\n  createPerson(firstName: \"Sarah\", lastName: \"Robinson\", age: 54, favouriteColour: \"blue\", hobby: [\"chess\"]) {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null
 }'
 ```
 - Update
 ```shell
- curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d 'mutation {
-  updatePerson(id: "123", firstName: "John", lastName: "Keynes", age: 29, favouriteColour: "black", hobby: ["cricket"]) {
-    firstName
-    lastName
-    age
-    favouriteColour
-    hobby
-  }
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  "query": "mutation {\n  updatePerson(id: \"123\", firstName: \"John\", lastName: \"Keynes\", age: 29, favouriteColour: \"black\", hobby: [\"cricket\"]) {\n    firstName\n    lastName\n    age\n    favouriteColour\n    hobby\n  }\n}",
+  "variables": null
 }'
 ```
 - Delete
 ```shell
- curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d 'mutation {
-  deletePerson(id: "123")
+ curl --user admin:admin -X POST localhost:8080/graphql -H 'Content-type:application/json' -d '{
+  "query": "mutation {\n  deletePerson(id: \"123\")\n}",
+  "variables": null
 }'
 ```
 
