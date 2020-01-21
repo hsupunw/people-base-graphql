@@ -1,7 +1,8 @@
-# Project people-base
+# Project people-base-graphql
 - This is a sample sapring-boot based REST application which shows main crud operations in person entities. 
 - It uses spring-graphql for web layer.
 - Also spring-data-jpa for persistence layer with h2 in memory database.
+- More over it is protected by basic authentication supported by spring-security.
 - This is powered by GraphiQl as a query processor graphical UI.
 
 ## Prerequisite
