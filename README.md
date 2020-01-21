@@ -82,6 +82,8 @@ command.
 }'
 ```
 
+## Postman Collection
+- You can import the postman collection created for testing purpose from https://www.getpostman.com/collections/0baa77c579770b4f7f92
     
 ## Using GraphiQL
 - Navigate to http://localhost:8080/graphiql and go to graphiQL web based ui
